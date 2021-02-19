@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% import 'macros.html' as macro%}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <!--Sidenav-->
+        <div class="col-md-3">
+            <div class="jumbotron jumbotron1">
+                <div class="row">
+                    <div class="col-xs-12 brand">
+                        <a href="/"><h1>Marekani</h1></a>
+                    </div>
+                </div>
+                <div class="row border-b">
+                    <div class="col-xs-12 date">
+                        <p id="date"></p>
+                        <p id="time"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p><a>Breaking News</a></p>
+                        <hr>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="row">
+                            <div class="col-xs-8 open-topics">
+                                <p>Topics</p>
+                            </div>
+                            <div class="col-xs-4 text-right open-topics">
+                                <span id="topics" class="glyphicon glyphicon-menu-up"></span>
+                            </div>
+                            <div class="col-xs-12 topics">
+                                <div class="row lists">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-10">
+                                        <p>General</p>
+                                        <p>Business</p>
+                                        <p>Entertainment</p>
+                                        <p>Health</p>
+                                        <p>Science</p>
+                                        <p>Technology</p>
+                                        <p>Sports</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                                               
+                        <hr>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="row">
+                            <div class="col-xs-8 open-sources">
+                                <p>Sources</p>
+                            </div>
+                            <div class="col-xs-4 text-right open-sources">
+                                <span id="sources" class="glyphicon glyphicon-menu-down"></span>
+                            </div>
+                            <div class="col-xs-12 sources">
+                                <div class="row lists">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-10">
+                                        {{macro.displaySources(sources)}}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>                                               
+                        <hr>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="row">
+                            <div class="col-xs-8 open-countries">
+                                <p>Countries</p>
+                            </div>
+                            <div class="col-xs-4 text-right open-countries">
+                                <span id="countries" class="glyphicon glyphicon-menu-down"></span>
+                            </div>
+                            <div class="col-xs-12 countries">
+                                <div class="row lists">
+                                    <div class="col-xs-2"></div>
+                                    <div class="col-xs-10">
+                                        <p>USA</p>
+                                        <p>Canada</p>
+                                        <p>Australia</p>
+                                        <p>Germany</p>
+                                        <p>France</p>
+                                        <p>China</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Content section-->
+        <div class="col-md-6">
+            <div class="jumbotron jumbotron2 news-sources">
+
+                <div class="row display-flex">
+                    <div class="col-xs-12 heading">
+                        <h2>{{news_list[0].source_name}}</h2>
+                    </div>                    
+                    {{ macro.displayNewsList(news_list) }}                                       
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

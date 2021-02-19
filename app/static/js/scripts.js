@@ -30,7 +30,13 @@ function myTimer() {
   document.getElementById("time").innerHTML = d.toLocaleTimeString();
 }
 
-var isTopics=true;
+function imgError(image) {
+    image.onerror = "";
+    image.src = "https://cdn.wallpapersafari.com/76/96/IRhkld.jpg";
+    return true;
+}
+
+var isTopics=false;
 var isSources=true;
 var isCountries=true;
 

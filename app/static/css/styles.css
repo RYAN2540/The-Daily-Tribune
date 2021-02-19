@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 
 @font-face{
-    font-family: 'valianttimes';
+    font-family: 'valianttimesFont';
     src: url(../fonts/valianttimes.ttf)
 }
 
@@ -10,9 +10,9 @@ html, body{
     color: black;
     height: 100%;
     width: 100%;    
-    font-family: 'Lato';  
+    font-family: 'PT Serif', serif;  
     font-size: medium;
-    /* background-color: #f4f4f4;   */
+    /* background-color: #f4f4f4; */
 }
 
 a {
@@ -21,8 +21,8 @@ a {
 }
 
 a :hover{
-    text-decoration: none !important;
-    color: brown;    
+    text-decoration: none !important;   
+    color: lightcyan;    
 }
 
 /* .header{     
@@ -32,14 +32,13 @@ a :hover{
 .brand h1{ 
     /* color: rgb(14, 67, 121);    */
     color: black;
-    font-family: valianttimes;
-    font-size: 2em;
-        
+    font-family: valianttimesFont;
+    font-size: 5em;    
 }
 
-.date p{    
-    font-size: medium;
-    
+.date p{         
+    font-size: medium; 
+    font-weight: 600;    
 }
 
 .border-b{
@@ -48,7 +47,7 @@ a :hover{
 }
 
 .jumbotron1{
-    /* background-color: lightgray; */
+    background-color: #dbe6e5;
     color: black;
     border-radius: 0em !important;    
 }
@@ -59,6 +58,10 @@ a :hover{
 
 .jumbotron1 p:hover{
     cursor: pointer;
+}
+
+.jumbotron1 a:hover{
+    color: rgb(14, 67, 121);
 }
 
 hr{
@@ -79,9 +82,8 @@ hr{
     color: rgb(63, 62, 62);
 }
 
-.topics,
-.countries,
-.sources{    
+.sources,
+.countries{    
     display: none;
 }
 
@@ -90,4 +92,47 @@ hr{
     border-radius: 0em !important;
     margin: 0em;
     padding: 0em !important;
+    background-color: transparent;
 }
+
+.card img{
+    object-fit: cover;
+    max-width: 100%;    
+}
+
+.card{
+    padding-top: 3%;
+    padding-bottom: 3%;    
+}
+
+.card p{
+    font-size: medium;
+}
+
+img{
+    object-fit: cover;
+    max-width: 100%;     
+}
+
+.carousel-caption{
+    background-color: rgb(0,0,0,0.5);
+    padding: 0.5em;
+    color: white;      
+}
+
+.carousel-caption p{
+    font-size: medium;
+}
+
+.carousel a:hover{
+    color: cyan;
+}
+
+.row.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.thumbnail {
+    height: 100%;
+}
+
