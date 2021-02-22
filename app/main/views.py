@@ -21,7 +21,7 @@ def index():
     msnbc=news_from_source("msnbc")
 
     sources=get_sources()
-    title="Marekani"
+    title="The Daily Tribune"
     return render_template('index.html', title=title, breaking_news=breaking_news, cnn=cnn, bbc=bbc, al=aljazeera,usa_today=usa_today, politico=politico, cbs=cbs, sources=sources, abc=abc, fox=fox, time=time, nbc=nbc, reuters=reuters, msnbc=msnbc)
 
 

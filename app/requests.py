@@ -9,68 +9,68 @@ def configure_request(app):
     api_key=app.config['NEWS_API_KEY']
 
 
-def get_breaking_news():
+def get_news():
 
-    get_breaking_url = 'http://newsapi.org/v2/top-headlines?country=us&apiKey={}'.format(api_key)
+    get_news_url = 'http://newsapi.org/v2/top-headlines?country=us&apiKey={}'.format(api_key)
 
-    with urllib.request.urlopen(get_breaking_url) as url:
-        get_breaking_data = url.read()
-        get_breaking_response = json.loads(get_breaking_data)
+    with urllib.request.urlopen(get_news_url) as url:
+        get_news_data = url.read()
+        get_news_response = json.loads(get_news_data)
 
-        breaking_results = None
+        news_results = None
 
-        if get_breaking_response['articles']:
-            breaking_results_list = get_breaking_response['articles']
-            breaking_results = process_breaking_results(breaking_results_list)
-
-
-    return breaking_results
+        if get_news_response['articles']:
+            news_results_list = get_news_response['articles']
+            news_results = process_news_results(news_results_list)
 
 
-def process_breaking_results(breaking_list):    
+    return news_results
 
-    breaking_results = []
 
-    for breaking_item in breaking_list:
-        source = breaking_item.get('source')
+def process_news_results(news_list):    
+
+    news_results = []
+
+    for news_item in news_list:
+        source = news_item.get('source')
         source_name= source['name']
-        author = breaking_item.get('author')
+        author = news_item.get('author')
         if author==None:
             author=source_name
         elif len(author)>40:
             author=source_name
         elif author[0:4]=="http":
             author=source_name
-        title = breaking_item.get('title')
-        url = breaking_item.get('url')
-        image_url = breaking_item.get('urlToImage')        
-        published_at = breaking_item.get('publishedAt')
+        title = news_item.get('title')
+        url = news_item.get('url')
+        image_url = news_item.get('urlToImage')        
+        published_at = news_item.get('publishedAt')
         day=published_at[0:10]
         time=published_at[11:16]
         published=day+" "+time+"hrs"
 
-        breaking_object = NewsArticle(source_name,author,title,url,image_url,published)
-        breaking_results.append(breaking_object)        
+        news_object = NewsArticle(source_name,author,title,url,image_url,published)
+        news_results.append(news_object)        
 
-    return breaking_results
+    return news_results
 
 
 def news_from_source(source_id):
 
-    get_breaking_url = 'http://newsapi.org/v2/everything?sources={}&pageSize=30&apiKey={}'.format(source_id, api_key)
+    get_url = 'http://newsapi.org/v2/everything?sources={}&pageSize=30&apiKey={}'.format(source_id, api_key)
 
-    with urllib.request.urlopen(get_breaking_url) as url:
-        get_breaking_data = url.read()
-        get_breaking_response = json.loads(get_breaking_data)
+    with urllib.request.urlopen(get_url) as url:
+        get_data = url.read()
+        get_response = json.loads(get_data)
 
-        breaking_results = None
+        results = None
 
-        if get_breaking_response['articles']:
-            breaking_results_list = get_breaking_response['articles']
-            breaking_results = process_breaking_results(breaking_results_list)
+        if get_response['articles']:
+            results_list = get_response['articles']
+            results = process_news_results(results_list)
 
 
-    return breaking_results
+    return results
 
 def get_sources():
 
