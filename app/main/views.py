@@ -63,7 +63,7 @@ def news_source(id):
         return redirect(url_for('.news_in_source', source_nm=title, this_source=source_id, query=topic_name ))
 
     else:
-        return render_template('news_list.html', title=title, news_list=news_list, sources_title=title, sources=sources)
+        return render_template('news_list.html', title=title, news_list=news_list, source_title=title, sources=sources)
 
 
 @main.route('/breaking')
@@ -145,4 +145,3 @@ def news_in_source(source_nm, this_source, query):
 
     else:
         return render_template('news_list.html', title=title, source_title=source_title, news_list=articles, sources=sources)
-        
