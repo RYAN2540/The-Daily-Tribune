@@ -31,7 +31,7 @@ def index():
     usa_today=news_from_source("usa-today")
     politico=news_from_source("politico")
     cbs=news_from_source("cbs-news")
-
+    
     newsweek=news_from_source("newsweek")
     fox=news_from_source("fox-news")
     time=news_from_source("time")
@@ -40,8 +40,14 @@ def index():
     msnbc=news_from_source("msnbc")
 
     sources=get_sources()
-    title="The Daily Tribune"
-    return render_template('index.html', title=title, breaking_news=top_news, cnn=cnn, bbc=bbc, al=aljazeera,usa_today=usa_today, politico=politico, cbs=cbs, sources=sources, newsweek=newsweek, fox=fox, time=time, nbc=nbc, reuters=reuters, msnbc=msnbc)
+    topic_name = request.args.get('topic_query')
+
+    if topic_name:
+        return redirect(url_for('.news_topic', query=topic_name))
+
+    else:
+        title="Marekani"
+        return render_template('index.html', title=title, breaking_news=top_news, cnn=cnn, bbc=bbc, al=aljazeera,usa_today=usa_today, politico=politico, cbs=cbs, sources=sources, newsweek=newsweek, fox=fox, time=time, nbc=nbc, reuters=reuters, msnbc=msnbc)
 
 
 @main.route('/source/<id>')
