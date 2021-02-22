@@ -9,9 +9,9 @@ def configure_request(app):
     api_key=app.config['NEWS_API_KEY']
 
 
-def get_news(category):
+def get_news(country, category):
 
-    get_news_url = 'http://newsapi.org/v2/top-headlines?country=us&category={}apiKey={}'.format(category, api_key)
+    get_news_url = 'http://newsapi.org/v2/top-headlines?country={}&category={}apiKey={}'.format(country, category, api_key)
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()

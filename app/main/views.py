@@ -2,10 +2,29 @@ from flask import render_template, request, redirect, url_for
 from . import main
 from ..requests import get_news,news_from_source,get_sources
 
+countries_dict={
+    "cn":"China",
+    "fr":"France",
+    "de":"Germany",
+    "it":"Italy",
+    "gb":"United Kingdom",
+    "ru":"Russia",
+    "za":"South Africa",
+    "ca":"Canada",
+    "il":"Israel",
+    "au":"Australia",
+    "nz":"New Zealand",
+    "in":"India",
+    "nl":"Netherlands",
+    "jp":"Japan",
+    "mx":"Mexico",
+    "us":"United States"
+}
+
 @main.route('/')
 @main.route('/home')
 def index():
-    top_news=get_news("general")
+    top_news=get_news("us", "general")
     cnn=news_from_source("cnn")
     bbc=news_from_source("bbc-news")
     aljazeera=news_from_source("al-jazeera-english")
@@ -35,7 +54,7 @@ def news_source(id):
 
 @main.route('/breaking')
 def breaking_news():
-    breaking_news=get_news("general")
+    breaking_news=get_news("us", "general")
     title="Breaking News"
     sources=get_sources()
     return render_template('news_list.html', title=title, news_list=breaking_news, sources=sources)
@@ -43,7 +62,15 @@ def breaking_news():
 
 @main.route('/categories/<id>')
 def news_category(id):
-    category_news=get_news(id)
+    category_news=get_news("us", id)
     title=id.capitalize()
     sources=get_sources()
     return render_template('news_list.html', title=title, news_list=category_news, sources=sources)
+
+
+@main.route('/countries/<id>')
+def news_country(id):
+    country_news=get_news(id, "general")
+    title=countries_dict[id]
+    sources=get_sources()
+    return render_template('news_list.html', title=title, news_list=country_news, sources=sources)
