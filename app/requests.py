@@ -44,10 +44,8 @@ def process_news_results(news_list):
         title = news_item.get('title')
         url = news_item.get('url')
         image_url = news_item.get('urlToImage')        
-        published_at = news_item.get('publishedAt')
-        day=published_at[0:10]
-        time=published_at[11:16]
-        published=day+" "+time+"hrs"
+        published_at = news_item.get('publishedAt')        
+        published=date_pipe(published_at)
 
         news_object = NewsArticle(source_name,author,title,url,image_url,published)
         news_results.append(news_object)        
@@ -105,7 +103,7 @@ def process_sources_results(sources_list):
 
 
 def search_topic(query):
-    search_topic_url = 'https://newsapi.org/v2/everything?q={}&sortBy=relevancy,popularity,publishedAt&pageSize=30&apiKey={}'.format(query, api_key)
+    search_topic_url = 'https://newsapi.org/v2/everything?q={}&sortBy=relevancy,publishedAt&pageSize=30&apiKey={}'.format(query, api_key)
     with urllib.request.urlopen(search_topic_url) as url:
         search_topic_data = url.read()
         search_topic_response = json.loads(search_topic_data)
@@ -118,3 +116,12 @@ def search_topic(query):
 
 
     return search_topic_results
+
+
+def date_pipe(date):
+    dd=date[8:10]
+    mm=date[5:7]
+    yyyy=date[0:4]    
+    time=date[11:16]
+    date_string=dd+"/"+mm+"/"+yyyy+" - "+time+" hrs"
+    return date_string

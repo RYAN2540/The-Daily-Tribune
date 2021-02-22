@@ -84,7 +84,9 @@ def news_country(id):
 
 @main.route('/topic/<query>')
 def news_topic(query):
-    articles=search_topic(query)
+    query_name_list = query.split(" ")
+    query_name_format = "+".join(query_name_list)
+    articles=search_topic(query_name_format)
     title="Articles: "+query
     sources=get_sources()
     return render_template('news_list.html', title=title, news_list=articles, sources=sources)
