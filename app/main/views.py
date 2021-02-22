@@ -5,7 +5,7 @@ from ..requests import get_news,news_from_source,get_sources
 @main.route('/')
 @main.route('/home')
 def index():
-    top_news=get_news()
+    top_news=get_news("general")
     cnn=news_from_source("cnn")
     bbc=news_from_source("bbc-news")
     aljazeera=news_from_source("al-jazeera-english")
@@ -35,7 +35,15 @@ def news_source(id):
 
 @main.route('/breaking')
 def breaking_news():
-    breaking_news=get_news()
+    breaking_news=get_news("general")
     title="Breaking News"
     sources=get_sources()
     return render_template('news_list.html', title=title, news_list=breaking_news, sources=sources)
+
+
+@main.route('/categories/<id>')
+def news_category(id):
+    category_news=get_news(id)
+    title=id.capitalize()
+    sources=get_sources()
+    return render_template('news_list.html', title=title, news_list=category_news, sources=sources)
