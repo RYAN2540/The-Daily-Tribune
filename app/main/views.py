@@ -63,7 +63,7 @@ def news_source(id):
         return redirect(url_for('.news_in_source', source_nm=title, this_source=source_id, query=topic_name ))
 
     else:
-        return render_template('news_list.html', title=title, news_list=news_list, sources=sources)
+        return render_template('news_list.html', title=title, news_list=news_list, sources_title=title, sources=sources)
 
 
 @main.route('/breaking')
@@ -71,7 +71,14 @@ def breaking_news():
     breaking_news=get_news("us", "general")
     title="Breaking News"
     sources=get_sources()
-    return render_template('news_list.html', title=title, news_list=breaking_news, sources=sources)
+    
+    topic_name = request.args.get('topic_query')
+
+    if topic_name:
+        return redirect(url_for('.news_topic', query=topic_name))
+
+    else:
+        return render_template('news_list.html', title=title, news_list=breaking_news, sources=sources)
 
 
 @main.route('/categories/<id>')
@@ -79,7 +86,14 @@ def news_category(id):
     category_news=get_news("us", id)
     title=id.capitalize()
     sources=get_sources()
-    return render_template('news_list.html', title=title, news_list=category_news, sources=sources)
+    
+    topic_name = request.args.get('topic_query')
+
+    if topic_name:
+        return redirect(url_for('.news_topic', query=topic_name))
+
+    else:
+        return render_template('news_list.html', title=title, news_list=category_news, sources=sources)
 
 
 @main.route('/countries/<id>')
@@ -87,7 +101,14 @@ def news_country(id):
     country_news=get_news(id, "general")
     title=countries_dict[id]
     sources=get_sources()
-    return render_template('news_list.html', title=title, news_list=country_news, sources=sources)
+    
+    topic_name = request.args.get('topic_query')
+
+    if topic_name:
+        return redirect(url_for('.news_topic', query=topic_name))
+
+    else:
+        return render_template('news_list.html', title=title, news_list=country_news, sources=sources)
 
 
 @main.route('/topic/<query>')
@@ -97,14 +118,31 @@ def news_topic(query):
     articles=search_topic(query_name_format)
     title="Articles: "+query
     sources=get_sources()
-    return render_template('news_list.html', title=title, news_list=articles, sources=sources)
+    
+    topic_name = request.args.get('topic_query')
+
+    if topic_name:
+        return redirect(url_for('.news_topic', query=topic_name))
+
+    else:
+        return render_template('news_list.html', title=title, news_list=articles, sources=sources)
 
 
 @main.route('/fromSource/<source_nm>/<this_source>/<query>')
 def news_in_source(source_nm, this_source, query):
+    source_id=this_source
     query_name_list = query.split(" ")
     query_name_format = "+".join(query_name_list)
     articles=search_from_source(query_name_format, this_source)
+    source_title=source_nm
     title=source_nm+": "+query
     sources=get_sources()
-    return render_template('news_list.html', title=title, news_list=articles, sources=sources)
+    
+    topic_name = request.args.get('from_source')
+
+    if topic_name:
+        return redirect(url_for('.news_in_source', source_nm=source_title, this_source=source_id, query=topic_name ))
+
+    else:
+        return render_template('news_list.html', title=title, source_title=source_title, news_list=articles, sources=sources)
+        

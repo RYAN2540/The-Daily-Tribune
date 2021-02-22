@@ -128,13 +128,28 @@
                 <form>
                     <div class="row">
                         <div class="col-xs-12">
-                            <label>Search {{title}}</label>
+                            {% if source_title %}
+
+                            <label>Search {{source_title}}</label>
                             <div class="input-group">
                                 <input type="text" name="from_source" class="form-control" placeholder="Search article" required>
                                 <span class="input-group-btn">
                                     <button class="btn btn-primary" type="submit"><span class="fa fa-search"></span></button>
                                 </span>
                             </div>
+
+                            {% else %}
+
+                            <label>Search articles</label>
+                            <div class="input-group">
+                                <input type="text" name="topic_query" class="form-control" placeholder="Search topic" required>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="submit"><span class="fa fa-search"></span></button>
+                                </span>
+                            </div>
+
+                            {% endif %}
+                            
                         </div>
                     </div>
                 </form>
