@@ -31,3 +31,11 @@ def news_source(id):
     title=news_list[0].source_name
     sources=get_sources()
     return render_template('news_list.html', title=title, news_list=news_list, sources=sources)
+
+
+@main.route('/breaking')
+def breaking_news():
+    breaking_news=get_news()
+    title="Breaking News"
+    sources=get_sources()
+    return render_template('news_list.html', title=title, news_list=breaking_news, sources=sources)
