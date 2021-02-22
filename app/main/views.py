@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from . import main
-from ..requests import get_news,news_from_source,get_sources
+from ..requests import get_news,news_from_source,get_sources, search_topic
 
 countries_dict={
     "cn":"China",
@@ -74,3 +74,11 @@ def news_country(id):
     title=countries_dict[id]
     sources=get_sources()
     return render_template('news_list.html', title=title, news_list=country_news, sources=sources)
+
+
+@main.route('/topic/<query>')
+def news_topic(query):
+    articles=search_topic(query)
+    title="Articles: "+query
+    sources=get_sources()
+    return render_template('news_list.html', title=title, news_list=articles, sources=sources)
