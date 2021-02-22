@@ -25,6 +25,7 @@ countries_dict={
 @main.route('/home')
 def index():
     top_news=get_news("us", "general")
+
     cnn=news_from_source("cnn")
     bbc=news_from_source("bbc-news")
     aljazeera=news_from_source("al-jazeera-english")
@@ -46,7 +47,7 @@ def index():
         return redirect(url_for('.news_topic', query=topic_name))
 
     else:
-        title="Marekani"
+        title="The Daily Tribune"
         return render_template('index.html', title=title, breaking_news=top_news, cnn=cnn, bbc=bbc, al=aljazeera,usa_today=usa_today, politico=politico, cbs=cbs, sources=sources, newsweek=newsweek, fox=fox, time=time, nbc=nbc, reuters=reuters, msnbc=msnbc)
 
 

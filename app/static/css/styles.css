@@ -12,7 +12,7 @@ html, body{
     width: 100%;    
     font-family: 'PT Serif', serif;  
     font-size: medium;
-    /* background-color: #f4f4f4; */
+    background-color: #f4f4f4;
 }
 
 a {
@@ -47,7 +47,8 @@ a :hover{
 }
 
 .jumbotron1{
-    background-color: #dbe6e5;
+    /* background-color: #dbe6e5; */
+    background-color: turquoise;
     color: black;
     border-radius: 0em !important;    
 }
@@ -139,6 +140,7 @@ img{
 
 .jumbotron3{
     /* background-color: #dbe6e5; */
+    background-color: #dbe6e5;
     color: black;
     border-radius: 0em !important;
     padding-left: 7% !important;
@@ -153,3 +155,32 @@ label{
     font-weight: 600;
     font-size: large;
 }
+
+.jumbotron4{
+    /* background-color: #dbe6e5; */
+    background-color: #dbe6e5;
+    color: black;
+    border-radius: 0em !important;
+    padding-left: 7% !important;
+    padding-right: 3% !important;
+    padding-top: 1em !important;    
+}
+
+.jumbotron4 p{
+    font-size: medium;
+}
+
+.headline a{
+    color: rgb(14, 67, 121);
+}
+
+.headline a:hover{
+    color: blue;
+}
+
+.head-suffix{
+    font-size: 0.7em !important;
+}
+
+
+

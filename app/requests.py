@@ -37,6 +37,8 @@ def process_news_results(news_list):
         author = news_item.get('author')
         if author==None:
             author=source_name
+        elif author==' ' or author=='':
+            author=source_name
         elif len(author)>40:
             author=source_name
         elif author[0:4]=="http":
@@ -46,8 +48,10 @@ def process_news_results(news_list):
         image_url = news_item.get('urlToImage')        
         published_at = news_item.get('publishedAt')        
         published=date_pipe(published_at)
+        description=news_item.get('description')
+        content=news_item.get('content')
 
-        news_object = NewsArticle(source_name,author,title,url,image_url,published)
+        news_object = NewsArticle(source_name,author,title,url,image_url,published,description,content)
         news_results.append(news_object)        
 
     return news_results

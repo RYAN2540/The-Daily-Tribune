@@ -116,31 +116,31 @@
                         <div id="myCarousel" class="carousel slide" data-ride="carousel">                            
                             <div class="carousel-inner">
                               <div class="item active">
-                                <img src="{{breaking_news[0].url_to_image}}" alt="...">
+                                <img src="{{breaking_news[0].url_to_image}}" alt="..." onerror="imgError(this);">
                                 <div class="carousel-caption">
                                     <p><a href="{{breaking_news[0].url}}">{{breaking_news[0].title}}</a></p>                                                                      
                                 </div>
                               </div>
                               <div class="item">
-                                <img src="{{breaking_news[1].url_to_image}}" alt="...">
+                                <img src="{{breaking_news[1].url_to_image}}" alt="..." onerror="imgError(this);">
                                 <div class="carousel-caption">
                                     <p><a href="{{breaking_news[1].url}}">{{breaking_news[1].title}}</a></p>                                    
                                 </div>
                               </div>
                               <div class="item">
-                                <img src="{{breaking_news[2].url_to_image}}" alt="...">
+                                <img src="{{breaking_news[2].url_to_image}}" alt="..." onerror="imgError(this);">
                                 <div class="carousel-caption">
                                     <p><a href="{{breaking_news[2].url}}">{{breaking_news[2].title}}</a></p>                                    
                                 </div>
                               </div>
                               <div class="item">
-                                <img src="{{breaking_news[3].url_to_image}}" alt="...">
+                                <img src="{{breaking_news[3].url_to_image}}" alt="..." onerror="imgError(this);">
                                 <div class="carousel-caption">
                                     <p><a href="{{breaking_news[3].url}}">{{breaking_news[3].title}}</a></p>                                    
                                 </div>
                               </div>
                               <div class="item">
-                                <img src="{{breaking_news[4].url_to_image}}" alt="...">
+                                <img src="{{breaking_news[4].url_to_image}}" alt="..." onerror="imgError(this);">
                                 <div class="carousel-caption">
                                     <p><a href="{{breaking_news[4].url}}">{{breaking_news[4].title}}</a></p>                                    
                                 </div>
@@ -281,7 +281,7 @@
             </div>
         </div>
 
-        <!--Search section-->
+        <!--right column section-->
         <div class="col-xs-12 col-md-3">
             <div class="jumbotron jumbotron3">
                 <form>
@@ -297,6 +297,19 @@
                         </div>
                     </div>
                 </form>
+            </div>
+            <div class="jumbotron jumbotron4">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2>Top Story</h2>
+                        <p class="headline"><strong><a href="{{breaking_news[0].url}}">{{breaking_news[0].title}}</a></strong></p>
+                        <h5>{{breaking_news[0].source_name}}</h5>
+                        <h5>{{breaking_news[0].published_at}}</h5>
+                        <p>{{breaking_news[0].description}}</p>
+                        <p>{{breaking_news[0].content}}</p>
+                        <p>- {{breaking_news[0].author}}</p>
+                    </div>
+                </div>
             </div>
         </div>
 

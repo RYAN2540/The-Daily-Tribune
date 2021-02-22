@@ -115,14 +115,26 @@
                 <div class="row display-flex">
                     <div class="col-xs-12 heading">
                         <h2>{{title}}</h2>
-                    </div>                    
-                    {{ macro.displayNewsList(news_list) }}                                       
+                    </div>
+
+                    {% if news_list %}
+
+                    {{ macro.displayNewsList(news_list) }} 
+
+                    {% else %}
+
+                    <div class="col-xs-12 text-center mt-4">
+                        <h3>No articles found.</h3>
+                    </div>
+
+                    {% endif %}
+
                 </div>
             </div>
         </div>
 
 
-        <!--Search section-->
+        <!--Right column section-->
         <div class="col-xs-12 col-md-3">
             <div class="jumbotron jumbotron3">
                 <form>
@@ -154,6 +166,23 @@
                     </div>
                 </form>
             </div>
+            {% if news_list %}
+
+            <div class="jumbotron jumbotron4">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2>Top Story | <span class="head-suffix text-muted">{{title}}</span></h2>
+                        <p class="headline"><strong><a href="{{news_list[0].url}}">{{news_list[0].title}}</a></strong></p>
+                        <h5>{{news_list[0].source_name}}</h5>
+                        <h5>{{news_list[0].published_at}}</h5>
+                        <p>{{news_list[0].description}}</p>
+                        <p>{{news_list[0].content}}</p>
+                        <p>- {{news_list[0].author}}</p>
+                    </div>
+                </div>
+            </div>
+
+            {% endif %}
         </div>
 
     </div>
