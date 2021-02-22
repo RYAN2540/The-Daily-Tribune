@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from . import main
-from ..requests import get_news,news_from_source,get_sources, search_topic
+from ..requests import get_news,news_from_source,get_sources, search_topic, search_from_source
 
 countries_dict={
     "cn":"China",
@@ -54,8 +54,16 @@ def index():
 def news_source(id):
     news_list=news_from_source(id)
     title=news_list[0].source_name
+    source_id=id
     sources=get_sources()
-    return render_template('news_list.html', title=title, news_list=news_list, sources=sources)
+    
+    topic_name = request.args.get('from_source')
+
+    if topic_name:
+        return redirect(url_for('.news_in_source', source_nm=title, this_source=source_id, query=topic_name ))
+
+    else:
+        return render_template('news_list.html', title=title, news_list=news_list, sources=sources)
 
 
 @main.route('/breaking')
@@ -88,5 +96,15 @@ def news_topic(query):
     query_name_format = "+".join(query_name_list)
     articles=search_topic(query_name_format)
     title="Articles: "+query
+    sources=get_sources()
+    return render_template('news_list.html', title=title, news_list=articles, sources=sources)
+
+
+@main.route('/fromSource/<source_nm>/<this_source>/<query>')
+def news_in_source(source_nm, this_source, query):
+    query_name_list = query.split(" ")
+    query_name_format = "+".join(query_name_list)
+    articles=search_from_source(query_name_format, this_source)
+    title=source_nm+": "+query
     sources=get_sources()
     return render_template('news_list.html', title=title, news_list=articles, sources=sources)
