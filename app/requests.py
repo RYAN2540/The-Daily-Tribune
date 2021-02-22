@@ -115,3 +115,6 @@ def search_topic(query):
         if search_topic_response['articles']:
             search_topic_list = search_topic_response['articles']
             search_topic_results = process_news_results(search_topic_list)
+
+
+    return search_topic_results
