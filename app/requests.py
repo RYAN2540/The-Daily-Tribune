@@ -11,7 +11,7 @@ def configure_request(app):
 
 def get_news(country, category):
 
-    get_news_url = 'http://newsapi.org/v2/top-headlines?country={}&category={}apiKey={}'.format(country, category, api_key)
+    get_news_url = 'http://newsapi.org/v2/top-headlines?country={}&category={}&apiKey={}'.format(country, category, api_key)
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
@@ -28,9 +28,9 @@ def get_news(country, category):
 
 
 def process_news_results(news_list):    
-
+    
     news_results = []
-
+    
     for news_item in news_list:
         source = news_item.get('source')
         source_name= source['name']
@@ -50,10 +50,10 @@ def process_news_results(news_list):
         published=date_pipe(published_at)
         description=news_item.get('description')
         content=news_item.get('content')
-
+        
         news_object = NewsArticle(source_name,author,title,url,image_url,published,description,content)
         news_results.append(news_object)        
-
+        
     return news_results
 
 
