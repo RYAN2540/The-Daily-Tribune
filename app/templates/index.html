@@ -97,7 +97,7 @@
                                         <p><a href="/countries/mx">Mexico</a></p>
                                         <p><a href="/countries/jp">Japan</a></p>
                                         <p><a href="/countries/il">Israel</a></p>
-                                        <p><a href="/countries/cn">China</a></p> 
+                                        <p><a href="/countries/cn">China</a></p>      
                                     </div>
                                 </div>
                             </div>
@@ -118,33 +118,12 @@
                               <div class="item active">
                                 <img src="{{breaking_news[0].url_to_image}}" alt="..." onerror="imgError(this);">
                                 <div class="carousel-caption">
-                                    <p><a href="{{breaking_news[0].url}}">{{breaking_news[0].title}}</a></p>                                                                      
+                                    <p><a href="{{breaking_news[0].url}}" target="_blank">{{breaking_news[0].title}}</a></p>                                                                      
                                 </div>
                               </div>
-                              <div class="item">
-                                <img src="{{breaking_news[1].url_to_image}}" alt="..." onerror="imgError(this);">
-                                <div class="carousel-caption">
-                                    <p><a href="{{breaking_news[1].url}}">{{breaking_news[1].title}}</a></p>                                    
-                                </div>
-                              </div>
-                              <div class="item">
-                                <img src="{{breaking_news[2].url_to_image}}" alt="..." onerror="imgError(this);">
-                                <div class="carousel-caption">
-                                    <p><a href="{{breaking_news[2].url}}">{{breaking_news[2].title}}</a></p>                                    
-                                </div>
-                              </div>
-                              <div class="item">
-                                <img src="{{breaking_news[3].url_to_image}}" alt="..." onerror="imgError(this);">
-                                <div class="carousel-caption">
-                                    <p><a href="{{breaking_news[3].url}}">{{breaking_news[3].title}}</a></p>                                    
-                                </div>
-                              </div>
-                              <div class="item">
-                                <img src="{{breaking_news[4].url_to_image}}" alt="..." onerror="imgError(this);">
-                                <div class="carousel-caption">
-                                    <p><a href="{{breaking_news[4].url}}">{{breaking_news[4].title}}</a></p>                                    
-                                </div>
-                              </div>
+
+                              {{ macro.displayCarousel(breaking_news) }}
+                              
                             </div>
                           
                             <!-- Controls -->
@@ -168,7 +147,7 @@
                             <img class="card-img-top" src="{{cnn[0].url_to_image}}" alt="CNN">
                             <div class="card-body">
                               <h5 class="card-title"><a href="/source/cnn">{{cnn[0].source_name}}</a></h5>
-                              <p class="card-text"><a href="{{cnn[0].url}}">{{cnn[0].title}}</a></p>                              
+                              <p class="card-text"><a href="{{cnn[0].url}}" target="_blank">{{cnn[0].title}}</a></p>                              
                             </div>
                         </div>
                     </div>
@@ -177,7 +156,7 @@
                             <img class="card-img-top" src="{{bbc[0].url_to_image}}" alt="BBC">
                             <div class="card-body">
                               <h5 class="card-title"><a href="/source/bbc-news">{{bbc[0].source_name}}</a></h5>
-                              <p class="card-text"><a href="{{bbc[0].url}}">{{bbc[0].title}}</a></p>                              
+                              <p class="card-text"><a href="{{bbc[0].url}}" target="_blank">{{bbc[0].title}}</a></p>                              
                             </div>
                         </div>
                     </div>
@@ -186,7 +165,7 @@
                             <img class="card-img-top" src="{{al[0].url_to_image}}" alt="Al Jazeera">
                             <div class="card-body">
                               <h5 class="card-title"><a href="/source/al-jazeera-english">{{al[0].source_name}}</a></h5>
-                              <p class="card-text"><a href="{{al[0].url}}">{{al[0].title}}</a></p>                              
+                              <p class="card-text"><a href="{{al[0].url}}" target="_blank">{{al[0].title}}</a></p>                              
                             </div>
                         </div>
                     </div>
@@ -195,7 +174,7 @@
                             <img class="card-img-top" src="{{cbs[0].url_to_image}}" alt="CBS">
                             <div class="card-body">
                               <h5 class="card-title"><a href="/source/cbs-news">{{cbs[0].source_name}}</a></h5>
-                              <p class="card-text"><a href="{{cbs[0].url}}">{{cbs[0].title}}</a></p>                              
+                              <p class="card-text"><a href="{{cbs[0].url}}" target="_blank">{{cbs[0].title}}</a></p>                              
                             </div>
                         </div>
                     </div>
@@ -204,7 +183,7 @@
                             <img class="card-img-top" src="{{politico[0].url_to_image}}" alt="Politico">
                             <div class="card-body">
                               <h5 class="card-title"><a href="/source/politico">{{politico[0].source_name}}</a></h5>
-                              <p class="card-text"><a href="{{politico[0].url}}">{{politico[0].title}}</a></p>                              
+                              <p class="card-text"><a href="{{politico[0].url}}" target="_blank">{{politico[0].title}}</a></p>                              
                             </div>
                         </div>
                     </div>
@@ -213,7 +192,7 @@
                             <img class="card-img-top" src="{{usa_today[0].url_to_image}}" alt="USA Today">
                             <div class="card-body">
                               <h5 class="card-title"><a href="/source/usa-today">{{usa_today[0].source_name}}</a></h5>
-                              <p class="card-text"><a href="{{usa_today[0].url}}">{{usa_today[0].title}}</a></p>                              
+                              <p class="card-text"><a href="{{usa_today[0].url}}" target="_blank">{{usa_today[0].title}}</a></p>                              
                             </div>
                         </div>
                     </div>
@@ -224,7 +203,7 @@
                             <img class="card-img-top" src="{{newsweek[0].url_to_image}}" alt="NewsWeek">
                             <div class="card-body">
                               <h5 class="card-title"><a href="/source/newsweek">{{newsweek[0].source_name}}</a></h5>
-                              <p class="card-text"><a href="{{newsweek[0].url}}">{{newsweek[0].title}}</a></p>                              
+                              <p class="card-text"><a href="{{newsweek[0].url}}" target="_blank">{{newsweek[0].title}}</a></p>                              
                             </div>
                         </div>
                     </div>
@@ -233,7 +212,7 @@
                             <img class="card-img-top" src="{{fox[0].url_to_image}}" alt="Fox News">
                             <div class="card-body">
                               <h5 class="card-title"><a href="/source/fox-news">{{fox[0].source_name}}</a></h5>
-                              <p class="card-text"><a href="{{fox[0].url}}">{{fox[0].title}}</a></p>                              
+                              <p class="card-text"><a href="{{fox[0].url}}" target="_blank">{{fox[0].title}}</a></p>                              
                             </div>
                         </div>
                     </div>
@@ -242,7 +221,7 @@
                             <img class="card-img-top" src="{{time[0].url_to_image}}" alt="Time">
                             <div class="card-body">
                               <h5 class="card-title"><a href="/source/time">{{time[0].source_name}}</a></h5>
-                              <p class="card-text"><a href="{{time[0].url}}">{{time[0].title}}</a></p>                              
+                              <p class="card-text"><a href="{{time[0].url}}" target="_blank">{{time[0].title}}</a></p>                              
                             </div>
                         </div>
                     </div>
@@ -253,7 +232,7 @@
                             <img class="card-img-top" src="{{nbc[0].url_to_image}}" alt="NBC News">
                             <div class="card-body">
                               <h5 class="card-title"><a href="/source/nbc-news">{{nbc[0].source_name}}</a></h5>
-                              <p class="card-text"><a href="{{nbc[0].url}}">{{nbc[0].title}}</a></p>                              
+                              <p class="card-text"><a href="{{nbc[0].url}}" target="_blank">{{nbc[0].title}}</a></p>                              
                             </div>
                         </div>
                     </div>
@@ -262,7 +241,7 @@
                             <img class="card-img-top" src="{{reuters[0].url_to_image}}" alt="Reuters">
                             <div class="card-body">
                               <h5 class="card-title"><a href="/source/reuters">{{reuters[0].source_name}}</a></h5>
-                              <p class="card-text"><a href="{{reuters[0].url}}">{{reuters[0].title}}</a></p>                              
+                              <p class="card-text"><a href="{{reuters[0].url}}" target="_blank">{{reuters[0].title}}</a></p>                              
                             </div>
                         </div>
                     </div>
@@ -271,12 +250,12 @@
                             <img class="card-img-top" src="{{msnbc[0].url_to_image}}" alt="MSNBC">
                             <div class="card-body">
                               <h5 class="card-title"><a href="/source/msnbc">{{msnbc[0].source_name}}</a></h5>
-                              <p class="card-text"><a href="{{msnbc[0].url}}">{{msnbc[0].title}}</a></p>                              
+                              <p class="card-text"><a href="{{msnbc[0].url}}" target="_blank">{{msnbc[0].title}}</a></p>                              
                             </div>
                         </div>
                     </div>
-
-
+                    
+                    
                 </div>
             </div>
         </div>
@@ -302,7 +281,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <h2>Top Story</h2>
-                        <p class="headline"><strong><a href="{{breaking_news[0].url}}">{{breaking_news[0].title}}</a></strong></p>
+                        <p class="headline"><strong><a href="{{breaking_news[0].url}}" target="_blank">{{breaking_news[0].title}}</a></strong></p>
                         <h5>{{breaking_news[0].source_name}}</h5>
                         <h5>{{breaking_news[0].published_at}}</h5>
                         <p>{{breaking_news[0].description}}</p>
@@ -312,7 +291,7 @@
                 </div>
             </div>
         </div>
-
+        
     </div>
 </div>
 

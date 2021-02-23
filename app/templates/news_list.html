@@ -43,7 +43,7 @@
                                         <p><a href="/categories/health">Health</a></p>
                                         <p><a href="/categories/science">Science</a></p>
                                         <p><a href="/categories/technology">Technology</a></p>
-                                        <p><a href="/categories/sports">Sports</a></p> 
+                                        <p><a href="/categories/sports">Sports</a></p>                                        
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            
                         </div>                                               
                         <hr>
                     </div>
@@ -97,7 +97,7 @@
                                         <p><a href="/countries/mx">Mexico</a></p>
                                         <p><a href="/countries/jp">Japan</a></p>
                                         <p><a href="/countries/il">Israel</a></p>
-                                        <p><a href="/countries/cn">China</a></p>
+                                        <p><a href="/countries/cn">China</a></p>                                       
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
         <!--Content section-->
         <div class="col-md-6">
             <div class="jumbotron jumbotron2 news-sources">
-
+                
                 <div class="row display-flex">
                     <div class="col-xs-12 heading">
                         <h2>{{title}}</h2>
@@ -128,7 +128,7 @@
                     </div>
 
                     {% endif %}
-
+                                                        
                 </div>
             </div>
         </div>
@@ -161,7 +161,7 @@
                             </div>
 
                             {% endif %}
-                            
+
                         </div>
                     </div>
                 </form>
@@ -172,7 +172,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <h2>Top Story | <span class="head-suffix text-muted">{{title}}</span></h2>
-                        <p class="headline"><strong><a href="{{news_list[0].url}}">{{news_list[0].title}}</a></strong></p>
+                        <p class="headline"><strong><a href="{{news_list[0].url}}" target="_blank">{{news_list[0].title}}</a></strong></p>
                         <h5>{{news_list[0].source_name}}</h5>
                         <h5>{{news_list[0].published_at}}</h5>
                         <p>{{news_list[0].description}}</p>
@@ -184,7 +184,7 @@
 
             {% endif %}
         </div>
-
+        
     </div>
 </div>
 
