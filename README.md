@@ -3,6 +3,10 @@
 #### By [Ryan Rotich](https://github.com/RYAN2540)
 ## Description
 
+<img src="./app/static/images/photo.png"
+     alt="Home page layout"
+     style="width=100%;" />
+
 <table>
 <tr>
 <td>
@@ -25,7 +29,7 @@ On the app a user is able to explore various news categories including breaking 
 
 ## Development
 
-The app has been developed with Flask 1.1.2 and deployed to Heroku. It's source code is available on GitHub at https://github.com/RYAN2540/
+The app has been developed with Flask 1.1.2 and deployed to Heroku. It's source code is available on GitHub at run ./start.sh
 
 To contribute to this project on any modules, follow these easy steps:
 
